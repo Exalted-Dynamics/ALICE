@@ -1,0 +1,120 @@
+<?php
+function generatePomFile($modelVersion, $groupId, $artifactId,
+                         $version, $name, $finalName, $description,
+                         $compilerVersion, $source, $target, $packaging)
+{
+    $pomFileString = '<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">' . PHP_EOL;
+    $pomFileString .= '    <modelVersion>' . $modelVersion . '</modelVersion>' . PHP_EOL;
+    $pomFileString .= '    <groupId>' . $groupId . '</groupId>' . PHP_EOL;
+    $pomFileString .= '    <artifactId>' . $artifactId . '</artifactId>' . PHP_EOL;
+    $pomFileString .= '    <version>' . $version . '</version>' . PHP_EOL;
+    $pomFileString .= PHP_EOL;
+    $pomFileString .= '    <name>' . $name . '</name>' . PHP_EOL;
+    $pomFileString .= '    <description>' . $description . '</description>' . PHP_EOL;
+    $pomFileString .= PHP_EOL;
+    $pomFileString .= '    <parent>' . PHP_EOL;
+    $pomFileString .= '        <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '        <artifactId>spring-boot-starter-parent</artifactId>' . PHP_EOL;
+    $pomFileString .= '        <version>1.5.4.RELEASE</version>' . PHP_EOL;
+    $pomFileString .= '        <relativePath/> <!-- lookup parent from repository -->' . PHP_EOL;
+    $pomFileString .= '    </parent>' . PHP_EOL;
+    $pomFileString .= PHP_EOL;
+    $pomFileString .= '    <properties>' . PHP_EOL;
+    $pomFileString .= '        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>' . PHP_EOL;
+    $pomFileString .= '        <java.version>1.8</java.version>' . PHP_EOL;
+    $pomFileString .= '    </properties>' . PHP_EOL;
+    $pomFileString .= PHP_EOL;
+    $pomFileString .= '    <dependencies>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>spring-boot-starter-web</artifactId>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <!-- <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>spring-boot-starter-data-mongodb</artifactId>' . PHP_EOL;
+    $pomFileString .= '        </dependency>-->' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>spring-boot-starter-data-jpa</artifactId>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>mysql</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>mysql-connector-java</artifactId>' . PHP_EOL;
+    $pomFileString .= '            <version>5.1.45</version>' . PHP_EOL;
+    $pomFileString .= '            <scope>runtime</scope>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>spring-boot-starter-test</artifactId>' . PHP_EOL;
+    $pomFileString .= '            <scope>test</scope>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>spring-boot-configuration-processor</artifactId>' . PHP_EOL;
+    $pomFileString .= '            <optional>true</optional>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>commons-io</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>commons-io</artifactId>' . PHP_EOL;
+    $pomFileString .= '            <version>2.6</version>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>spring-boot-starter-tomcat</artifactId>' . PHP_EOL;
+    $pomFileString .= '            <scope>provided</scope>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>spring-boot-starter-hateoas</artifactId>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>log4j</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>log4j</artifactId>' . PHP_EOL;
+    $pomFileString .= '            <version>1.2.17</version>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '        <dependency>' . PHP_EOL;
+    $pomFileString .= '            <groupId>javax.xml.bind</groupId>' . PHP_EOL;
+    $pomFileString .= '            <artifactId>jaxb-api</artifactId>' . PHP_EOL;
+    $pomFileString .= '            <version>2.3.0</version>' . PHP_EOL;
+    $pomFileString .= '        </dependency>' . PHP_EOL;
+    $pomFileString .= '    </dependencies>' . PHP_EOL;
+    $pomFileString .= PHP_EOL;
+    $pomFileString .= '    <build>' . PHP_EOL;
+    $pomFileString .= '        <finalName>' . $finalName . '</finalName>' . PHP_EOL;
+    $pomFileString .= '        <plugins>' . PHP_EOL;
+    $pomFileString .= '            <plugin>' . PHP_EOL;
+    $pomFileString .= '                <groupId>org.springframework.boot</groupId>' . PHP_EOL;
+    $pomFileString .= '               <artifactId>spring-boot-maven-plugin</artifactId>' . PHP_EOL;
+    $pomFileString .= '            </plugin>' . PHP_EOL;
+    $pomFileString .= '            <plugin>' . PHP_EOL;
+    $pomFileString .= '                <groupId>org.apache.maven.plugins</groupId>' . PHP_EOL;
+    $pomFileString .= '                <artifactId>maven-compiler-plugin</artifactId>' . PHP_EOL;
+    $pomFileString .= '                <configuration>' . PHP_EOL;
+    $pomFileString .= '                    <compilerVersion>' . $compilerVersion . '</compilerVersion>' . PHP_EOL;
+    $pomFileString .= '                    <source>' . $source . '</source>' . PHP_EOL;
+    $pomFileString .= '                    <target>' . $target . '</target>' . PHP_EOL;
+    $pomFileString .= '                </configuration>' . PHP_EOL;
+    $pomFileString .= '            </plugin>' . PHP_EOL;
+    $pomFileString .= '        </plugins>' . PHP_EOL;
+    $pomFileString .= '    </build>' . PHP_EOL;
+    $pomFileString .= '    <packaging>' . $packaging . '</packaging>' . PHP_EOL;
+    $pomFileString .= '</project>' . PHP_EOL;
+
+    return $pomFileString;
+}
+
+$modelVersion ='4.0.0';
+$groupId = 'com.omni.systems';
+$artifactId = 'com.omni.systems.application.settings.service';
+$version = '0.0.1-SNAPSHOT';
+$name = 'application-settings-service';
+$finalName = 'application-settings-service';
+$description = 'Data Access for omni\'s application settings';
+$compilerVersion = '1.8';
+$source = '1.8';
+$target = '1.8';
+$packaging = 'war';
+
+echo generatePomFile($modelVersion, $groupId, $artifactId, $version,
+    $name, $finalName, $description, $compilerVersion, $source,
+    $target, $packaging);

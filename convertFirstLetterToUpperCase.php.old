@@ -1,0 +1,17 @@
+<?php
+/* returns string */
+function convertFirstLetterToUpperCase($array) {
+   $firstCharacter = array_slice($array, 0, 1);
+   $characters = array_slice($array, 1, count($array));
+   $returnString = "$firstCharacter";
+
+   foreach ($characters as $letter) {
+      $returnString = "$returnString" . "$letter";
+   }
+
+   return $returnString;
+}
+
+$test = array("t","e","s","t");
+echo convertFirstLetterToUpperCase($test);
+?>
